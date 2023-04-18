@@ -1,0 +1,15 @@
+{
+    "arrowParens": "avoid",
+    "bracketSameLine": false,
+    "bracketSpacing": false,
+    "endOfLine": "lf",
+    "jsxSingleQuote": false,
+    "printWidth": 90,
+    "quoteProps": "consistent",
+    "semi": true,
+    "singleAttributePerLine": false,
+    "singleQuote": true,
+    "tabs": false,
+    "tabWidth": 4,
+    "trailingComma": "all"
+}
