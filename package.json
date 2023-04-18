@@ -1,0 +1,26 @@
+{
+    "name": "hygieia",
+    "version": "0.1.0",
+    "type": "module",
+    "license": "MIT",
+    "author": "Rodrigo Bondoc",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "check:types": "tsc --noEmit"
+    },
+    "keywords": [],
+    "devDependencies": {
+        "@types/minimist": "^1.2.2",
+        "@types/node": "^18.15.11",
+        "@types/prompt": "^1.1.5",
+        "cross-spawn": "^7.0.3",
+        "kolorist": "^1.7.0",
+        "minimist": "^1.2.8",
+        "prettier": "^2.8.7",
+        "prompts": "^2.4.2",
+        "tsx": "^3.12.6",
+        "typescript": "^5.0.4",
+        "unbuild": "^1.2.1"
+    }
+}
