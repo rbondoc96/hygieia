@@ -7,13 +7,15 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "check:types": "tsc --noEmit"
+        "build": "unbuild",
+        "check:types": "tsc --noEmit",
+        "dev": "tsx src/index.ts"
     },
     "keywords": [],
     "devDependencies": {
         "@types/minimist": "^1.2.2",
         "@types/node": "^18.15.11",
-        "@types/prompt": "^1.1.5",
+        "@types/prompts": "^2.4.4",
         "cross-spawn": "^7.0.3",
         "kolorist": "^1.7.0",
         "minimist": "^1.2.8",

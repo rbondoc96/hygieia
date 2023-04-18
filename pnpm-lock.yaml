@@ -7,9 +7,9 @@ devDependencies:
   '@types/node':
     specifier: ^18.15.11
     version: 18.15.11
-  '@types/prompt':
-    specifier: ^1.1.5
-    version: 1.1.5
+  '@types/prompts':
+    specifier: ^2.4.4
+    version: 2.4.4
   cross-spawn:
     specifier: ^7.0.3
     version: 7.0.3
@@ -622,19 +622,15 @@ packages:
     resolution: {integrity: sha512-E5Kwq2n4SbMzQOn6wnmBjuK9ouqlURrcZDVfbo9ftDDTFt3nk7ZKK4GMOzoYgnpQJKcxwQw+lGaBvvlMo0qN/Q==}
     dev: true
 
-  /@types/prompt@1.1.5:
-    resolution: {integrity: sha512-xvIqQ/DOwlRxVT/P47f85rJGIQLZ59XQnbRpCdSJi93FtaAFOScr6H7GhiaaLGi1jo8WfOy1rhkpjc2zPFXMoQ==}
+  /@types/prompts@2.4.4:
+    resolution: {integrity: sha512-p5N9uoTH76lLvSAaYSZtBCdEXzpOOufsRjnhjVSrZGXikVGHX9+cc9ERtHRV4hvBKHyZb1bg4K+56Bd2TqUn4A==}
     dependencies:
       '@types/node': 18.15.11
-      '@types/revalidator': 0.3.8
+      kleur: 3.0.3
     dev: true
 
   /@types/resolve@1.20.2:
     resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
-    dev: true
-
-  /@types/revalidator@0.3.8:
-    resolution: {integrity: sha512-q6KSi3PklLGQ0CesZ/XuLwly4DXXlnJuucYOG9lrBqrP8rKiuPZThav2h2+pFjaheNpnT0qKK3i304QWIePeJw==}
     dev: true
 
   /acorn@8.8.2:
