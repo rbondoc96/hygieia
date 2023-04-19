@@ -5,7 +5,9 @@
     "license": "MIT",
     "author": "Rodrigo Bondoc",
     "description": "",
-    "main": "index.js",
+    "files": [
+        "dist"
+    ],
     "scripts": {
         "build": "unbuild",
         "check:types": "tsc --noEmit",

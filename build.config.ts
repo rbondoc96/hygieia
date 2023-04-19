@@ -5,4 +5,10 @@ export default defineBuildConfig({
     declaration: true,
     entries: ['src/index'],
     outDir: 'dist',
+    rollup: {
+        inlineDependencies: true,
+        esbuild: {
+            minify: true,
+        },
+    },
 });

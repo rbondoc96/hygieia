@@ -4,10 +4,6 @@
         "module": "ES2020",
         "outDir": "dist",
         "moduleResolution": "bundler",
-        "baseUrl": ".",
-        "paths": {
-            "@/*": ["src/*"]
-        },
         "alwaysStrict": true,
         "strict": true,
         "allowJs": false,
@@ -30,5 +26,5 @@
         "sourceMap": false,
         "useUnknownInCatchVariables": true
     },
-    "include": ["src"]
+    "include": ["build.config.ts", "src"]
 }
