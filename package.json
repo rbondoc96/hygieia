@@ -4,7 +4,7 @@
     "type": "module",
     "license": "MIT",
     "author": "Rodrigo Bondoc",
-    "description": "",
+    "description": "A TypeScript project scaffolding tool CLI that streamlines initial setup with linting and code formatting on-save.",
     "files": [
         "dist"
     ],
