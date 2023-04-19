@@ -4,8 +4,9 @@ import minimist from 'minimist';
 import path from 'path';
 import prompts from 'prompts';
 import {fileURLToPath} from 'url';
-import {copyFile, emptyDir, formatTargetDir, isDirEmpty} from './utils';
 import OperationCancelledError from './errors/OperationCancelledError';
+import Messages from './messages';
+import {copyFile, emptyDir, formatTargetDir, isDirEmpty} from './utils';
 
 const Prompts = {
     CheckShouldOverwriteDirectory: {
@@ -13,21 +14,15 @@ const Prompts = {
     },
     ProjectName: {
         key: 'projectName',
-        message: reset('Project name:'),
+        message: reset(Messages.ProjectName),
     },
     ShouldOverwriteDirectory: {
         key: 'shouldOverwriteDirectory',
-        message: (targetDir: string) =>
-            (targetDir === '.'
-                ? 'Current directory'
-                : `Target directory "${targetDir}"`) +
-            ` is not empty. Remove existing files and continue?`,
+        message: Messages.ShouldOverwriteDirectory,
     },
     UseRecommendedTSConfig: {
         key: 'useRecommendedTSConfig',
-        message: reset(
-            'Install recommended a tsconfig.json file with recommended settings?',
-        ),
+        message: reset(Messages.UseRecommendedTSConfig),
     },
 } as const;
 
