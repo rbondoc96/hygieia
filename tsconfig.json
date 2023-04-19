@@ -26,5 +26,5 @@
         "sourceMap": false,
         "useUnknownInCatchVariables": true
     },
-    "include": ["build.config.ts", "src"]
+    "include": ["build.config.ts", "src", "__tests__"]
 }
