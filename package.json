@@ -11,7 +11,9 @@
     "scripts": {
         "build": "unbuild",
         "check:types": "tsc --noEmit",
-        "dev": "tsx src/index.ts"
+        "dev": "tsx src/index.ts",
+        "test": "vitest run",
+        "test:watch": "vitest"
     },
     "keywords": [],
     "devDependencies": {
@@ -19,12 +21,15 @@
         "@types/node": "^18.15.11",
         "@types/prompts": "^2.4.4",
         "cross-spawn": "^7.0.3",
+        "execa": "^7.1.1",
         "kolorist": "^1.7.0",
         "minimist": "^1.2.8",
         "prettier": "^2.8.7",
         "prompts": "^2.4.2",
         "tsx": "^3.12.6",
         "typescript": "^5.0.4",
-        "unbuild": "^1.2.1"
+        "unbuild": "^1.2.1",
+        "vite": "^4.2.2",
+        "vitest": "^0.30.1"
     }
 }
