@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import PathIsNotADirectoryError from '@/errors/PathIsNotADirectoryError';
-import {copyFile} from '@/utils/file';
+import PathIsNotADirectoryError from '../errors/PathIsNotADirectoryError';
+import {copyFile} from './file';
 
 export function copyDir(srcDir: string, destDir: string) {
     fs.mkdirSync(destDir, {recursive: true});

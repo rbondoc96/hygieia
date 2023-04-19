@@ -2,8 +2,8 @@ import minimist from 'minimist';
 import path from 'path';
 import prompts from 'prompts';
 import {fileURLToPath} from 'url';
-import {formatTargetDir} from '@/utils';
-import OperationCancelledError from '@/errors/OperationCancelledError';
+import {formatTargetDir} from './utils';
+import OperationCancelledError from './errors/OperationCancelledError';
 
 const defaultProjectName = 'my-project';
 

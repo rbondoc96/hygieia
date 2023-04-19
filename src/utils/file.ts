@@ -1,6 +1,6 @@
 import type {BufferEncoding} from 'typescript';
 import fs from 'fs';
-import {copyDir} from '@/utils/dir';
+import {copyDir} from './dir';
 
 export function copyFile(src: string, dest: string) {
     const fileStats = fs.statSync(src);
