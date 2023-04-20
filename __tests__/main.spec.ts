@@ -33,12 +33,12 @@ function run(args: string[], options: SyncOptions = {}): ExecaSyncReturnValue {
 }
 
 describe('CLI', () => {
-    beforeEach(async () => {
-        await fs.remove(TEST_PROJECT_NAME);
+    beforeEach(() => {
+        fs.removeSync(TEST_PROJECT_NAME);
     });
 
-    afterEach(async () => {
-        await fs.remove(TEST_PROJECT_NAME);
+    afterEach(() => {
+        fs.removeSync(TEST_PROJECT_NAME);
     });
 
     test('prompts for project name is none is given', () => {
