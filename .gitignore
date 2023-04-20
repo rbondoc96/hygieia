@@ -4,6 +4,7 @@
 *.local
 *.log
 .vscode
+coverage
 dist
 explorations
 node_modules
