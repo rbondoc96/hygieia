@@ -1,5 +1,5 @@
 export default class PathIsNotADirectoryError extends Error {
-    override readonly name = 'PATH_IS_NOT_A_DIRECTORY_ERROR';
+    override readonly name = 'PATH_IS_NOT_A_DIRECTORY';
     override readonly message: string;
 
     constructor(path: string) {
