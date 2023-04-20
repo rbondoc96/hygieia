@@ -1,7 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import PathIsNotADirectoryError from '../errors/PathIsNotADirectoryError';
-import {copyFile} from './file';
 
 export function copyDir(srcDir: string, destDir: string) {
     fs.mkdirSync(destDir, {recursive: true});
@@ -9,7 +8,7 @@ export function copyDir(srcDir: string, destDir: string) {
     for (const file of fs.readdirSync(srcDir)) {
         const srcFile = path.resolve(srcDir, file);
         const destFile = path.resolve(destDir, file);
-        copyFile(srcFile, destFile);
+        fs.copyFileSync(srcFile, destFile);
     }
 }
 
