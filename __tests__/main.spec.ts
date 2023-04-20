@@ -58,6 +58,11 @@ describe('CLI', () => {
         expect(stdout).toContain(Messages.ShouldOverwriteDirectory(TEST_PROJECT_NAME));
     });
 
+    test('prompts to clear current directory', () => {
+        const {stdout} = run(['.']);
+        expect(stdout).toContain(Messages.ShouldOverwriteDirectory('.'));
+    });
+
     test('does not prompt to clear directory if it already exists and is empty', async () => {
         createEmptyDir(TEST_PROJECT_NAME);
         const {stdout} = run([TEST_PROJECT_NAME]);
