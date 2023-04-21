@@ -6,7 +6,7 @@ export default defineConfig({
             provider: 'c8',
             reportsDirectory: './__tests__/coverage',
         },
-        exclude: ['**/node_modules/**', '**/dist/**', '**/coverage/**'],
+        exclude: ['**/node_modules/**', '**/dist/**', '**/coverage/**', '**/helpers/**'],
         testTimeout: 10000,
         // node14 often fails with a Segmentation Fault
         threads: !process.versions.node.startsWith('14'),

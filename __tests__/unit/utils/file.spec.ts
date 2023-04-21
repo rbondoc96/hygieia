@@ -1,66 +1,68 @@
 import fs from 'fs-extra';
 import path from 'path';
 import {afterEach, beforeEach, describe, expect, test} from 'vitest';
+import {createEmptyDir} from '../../helpers/dir';
 import PathIsNotAFileError from '../../../src/errors/PathIsNotAFileError';
 import * as file from '../../../src/utils/file';
+import NoSuchFileOrDirectoryError from '../../../src/errors/NoSuchFileOrDirectoryError';
 
-const TEST_DIR = 'tmp';
-const TEST_FILE = 'tmp-test.txt';
-
-function createEmptyDir(dir?: string) {
-    fs.mkdirpSync(dir ?? TEST_DIR);
-}
+const TEST_DIR_PATH = path.join(__dirname, 'test');
+const TEST_FILE_PATH = path.join(__dirname, 'tmp-test.txt');
+const COPY_FILE_PATH = path.join(__dirname, 'tmp-test-copy.txt');
 
 describe('utils/file.ts tests', () => {
     describe('copyFile()', () => {
-        const TEST_FILE_COPY = 'tmp-test-copy.txt';
-
         beforeEach(() => {
-            fs.removeSync(path.join(__dirname, TEST_FILE));
-            fs.removeSync(path.join(__dirname, TEST_FILE_COPY));
+            fs.removeSync(COPY_FILE_PATH);
+            fs.removeSync(TEST_DIR_PATH);
+            fs.removeSync(TEST_FILE_PATH);
         });
 
         afterEach(() => {
-            fs.removeSync(path.join(__dirname, TEST_FILE));
-            fs.removeSync(path.join(__dirname, TEST_FILE_COPY));
+            fs.removeSync(COPY_FILE_PATH);
+            fs.removeSync(TEST_DIR_PATH);
+            fs.removeSync(TEST_FILE_PATH);
         });
 
         test('copies file successfully', () => {
-            const filePath = path.join(__dirname, TEST_FILE);
-            fs.writeFileSync(filePath, 'test');
-            file.copyFile(filePath, path.join(__dirname, TEST_FILE_COPY));
-            expect(fs.existsSync(path.join(__dirname, TEST_FILE_COPY))).toBe(true);
+            fs.writeFileSync(TEST_FILE_PATH, 'test');
+            file.copyFile(TEST_FILE_PATH, COPY_FILE_PATH);
+            expect(fs.existsSync(COPY_FILE_PATH)).toBe(true);
         });
 
         test('throws an error if the source path is not a file', () => {
-            createEmptyDir(TEST_DIR);
+            createEmptyDir(TEST_DIR_PATH);
 
-            expect(() => file.copyFile(TEST_DIR, TEST_FILE_COPY)).toThrowError(
-                new PathIsNotAFileError(TEST_DIR).message,
+            expect(() => file.copyFile(TEST_DIR_PATH, COPY_FILE_PATH)).toThrowError(
+                new PathIsNotAFileError(TEST_DIR_PATH).message,
+            );
+        });
+
+        test('throws an error if the source file does not exist', () => {
+            expect(() => file.copyFile(TEST_DIR_PATH, COPY_FILE_PATH)).toThrowError(
+                new NoSuchFileOrDirectoryError(TEST_DIR_PATH).message,
             );
         });
     });
 
     describe('editFile()', () => {
         beforeEach(() => {
-            fs.removeSync(path.join(__dirname, TEST_FILE));
+            fs.removeSync(TEST_FILE_PATH);
         });
 
         afterEach(() => {
-            fs.removeSync(path.join(__dirname, TEST_FILE));
+            fs.removeSync(TEST_FILE_PATH);
         });
 
         test('edits file successfully', () => {
-            const filePath = path.join(__dirname, TEST_FILE);
-            fs.writeFileSync(filePath, 'test');
-            file.editFile(filePath, data => data + 'ing');
-            expect(fs.readFileSync(filePath).toString()).toBe('testing');
+            fs.writeFileSync(TEST_FILE_PATH, 'test');
+            file.editFile(TEST_FILE_PATH, data => data + 'ing');
+            expect(fs.readFileSync(TEST_FILE_PATH).toString()).toBe('testing');
         });
 
         test('creates file if file does not exist', () => {
-            const filePath = path.join(__dirname, TEST_FILE);
-            file.editFile(filePath, data => data + 'ing');
-            expect(fs.readFileSync(filePath).toString()).toBe('testing');
+            file.editFile(TEST_FILE_PATH, data => data + 'ing');
+            expect(fs.readFileSync(TEST_FILE_PATH).toString()).toBe('ing');
         });
     });
 });
