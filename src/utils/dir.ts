@@ -1,8 +1,13 @@
-import fs from 'fs';
+import fs from 'fs-extra';
 import path from 'path';
+import NoSuchFileOrDirectoryError from '../errors/NoSuchFileOrDirectoryError';
 import PathIsNotADirectoryError from '../errors/PathIsNotADirectoryError';
 
 export function copyDir(srcDir: string, destDir: string) {
+    if (!fs.existsSync(srcDir)) {
+        throw new NoSuchFileOrDirectoryError(srcDir);
+    }
+
     fs.mkdirSync(destDir, {recursive: true});
 
     for (const file of fs.readdirSync(srcDir)) {

@@ -1,8 +1,13 @@
 import type {BufferEncoding} from 'typescript';
-import fs from 'fs';
+import fs from 'fs-extra';
 import PathIsNotAFileError from '../errors/PathIsNotAFileError';
+import NoSuchFileOrDirectoryError from '../errors/NoSuchFileOrDirectoryError';
 
 export function copyFile(src: string, dest: string) {
+    if (!fs.existsSync(src)) {
+        throw new NoSuchFileOrDirectoryError(src);
+    }
+
     const srcFileStats = fs.statSync(src);
 
     if (!srcFileStats.isFile()) {
@@ -18,7 +23,8 @@ export function editFile(
     encoding: BufferEncoding = 'utf-8',
 ) {
     if (!fs.existsSync(file)) {
-        fs.writeFileSync(file, 'test');
+        fs.writeFileSync(file, callback(''), encoding);
+        return;
     }
 
     const contents = fs.readFileSync(file, encoding);
