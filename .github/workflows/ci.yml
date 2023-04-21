@@ -1,0 +1,53 @@
+name: CI
+
+env:
+    VITEST_SEGFAULT_RETRY: 3
+
+concurrency:
+    group: ${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
+
+on:
+    push:
+        branches:
+            - '**'
+        tags-ignore:
+            - '**'
+
+permissions: {}
+
+jobs:
+    check_code:
+        runs-on: ubuntu-latest
+        name: 'Lint and Type Checks: node-18, ubuntu-latest'
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v2.2.4
+
+            - name: Set node version to 18
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+                  cache: 'pnpm'
+
+            - name: Install deps
+              run: pnpm install
+
+            - name: Build
+              run: pnpm build
+
+            - name: Lint
+              run: pnpm lint
+
+            - name: Check formatting
+              run: pnpm prettier --check .
+
+            - name: Type checks
+              run: pnpm check:types
+
+            - name: Test build
+              run: pnpm test:build --coverage
