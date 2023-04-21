@@ -1,9 +1,11 @@
-import fs from 'fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+
+import fs from 'fs-extra';
 import {reset} from 'kolorist';
 import minimist from 'minimist';
-import path from 'path';
 import prompts from 'prompts';
-import {fileURLToPath} from 'url';
+
 import OperationCancelledError from './errors/OperationCancelledError';
 import Messages from './messages';
 import {copyFile, emptyDir, formatTargetDir, isDirEmpty} from './utils';
@@ -30,7 +32,7 @@ type AnswerKey = (typeof Prompts)[keyof typeof Prompts]['key'];
 
 const defaultProjectName = 'my-project';
 
-export default async function main() {
+export default async function main(): Promise<void> {
     // If an argument consists of only numbers, it gets converted to a type of `number`.
     // The options object argument fixes that and prevents the auto-conversion to `number`.
     const argv = minimist(process.argv.slice(2), {

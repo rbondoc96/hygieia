@@ -1,11 +1,12 @@
-import fs from 'fs-extra';
-import path from 'path';
+import path from 'node:path';
 
-export function createEmptyDir(dir: string) {
+import fs from 'fs-extra';
+
+export function createEmptyDir(dir: string): void {
     fs.mkdirpSync(dir);
 }
 
-export function createEmptyNestedDirs(dirs: string[]) {
+export function createEmptyNestedDirs(dirs: string[]): void {
     if (dirs.length < 2) {
         throw new Error('At least two directories are required.');
     }
@@ -21,7 +22,7 @@ export function createNonEmptyDir(
     } = {
         count: 1,
     },
-) {
+): void {
     if (fs.existsSync(dir) && fs.lstatSync(dir).isDirectory()) {
         if (fs.readdirSync(dir).length > 0) {
             return;
@@ -52,7 +53,7 @@ export function createNonEmptyNestedDirs(
         dir: string;
         files: string[] | Array<{name: string; content: string}>;
     }>,
-) {
+): void {
     if (options.length < 2) {
         throw new Error('At least two directories are required.');
     }

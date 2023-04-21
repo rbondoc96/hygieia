@@ -6,11 +6,11 @@ type UserAgent = {
 /**
  * Removes any forward-slashes from the end of a string.
  */
-export function formatTargetDir(targetDir: string | undefined) {
+export function formatTargetDir(targetDir: string | undefined): string | undefined {
     return targetDir?.trim().replace(/\/+$/g, '');
 }
 
-export function isValidNPMPackageName(name: string) {
+export function isValidNPMPackageName(name: string): boolean {
     return /^(?:@[a-z\d\-*~][a-z\d\-*._~]*\/)?[a-z\d\-~][a-z\d\-._~]*$/.test(name);
 }
 
@@ -53,7 +53,7 @@ export function packageFromUserAgent(
     };
 }
 
-export function toValidNPMPackageName(name: string) {
+export function toValidNPMPackageName(name: string): string {
     return name
         .trim()
         .toLowerCase()

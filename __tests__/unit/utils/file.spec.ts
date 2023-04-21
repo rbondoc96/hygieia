@@ -1,10 +1,12 @@
+import path from 'node:path';
+
 import fs from 'fs-extra';
-import path from 'path';
 import {afterEach, beforeEach, describe, expect, test} from 'vitest';
-import {createEmptyDir} from '../../helpers/dir';
+
+import NoSuchFileOrDirectoryError from '../../../src/errors/NoSuchFileOrDirectoryError';
 import PathIsNotAFileError from '../../../src/errors/PathIsNotAFileError';
 import * as file from '../../../src/utils/file';
-import NoSuchFileOrDirectoryError from '../../../src/errors/NoSuchFileOrDirectoryError';
+import {createEmptyDir} from '../../helpers/dir';
 
 const TEST_DIR_PATH = path.join(__dirname, 'test');
 const TEST_FILE_PATH = path.join(__dirname, 'tmp-test.txt');

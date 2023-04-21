@@ -1,9 +1,11 @@
+import path from 'node:path';
+
 import fs from 'fs-extra';
-import path from 'path';
+
 import NoSuchFileOrDirectoryError from '../errors/NoSuchFileOrDirectoryError';
 import PathIsNotADirectoryError from '../errors/PathIsNotADirectoryError';
 
-export function copyDir(srcDir: string, destDir: string) {
+export function copyDir(srcDir: string, destDir: string): void {
     if (!fs.existsSync(srcDir)) {
         throw new NoSuchFileOrDirectoryError(srcDir);
     }
@@ -17,7 +19,7 @@ export function copyDir(srcDir: string, destDir: string) {
     }
 }
 
-export function emptyDir(dir: string) {
+export function emptyDir(dir: string): void {
     if (!fs.existsSync(dir)) {
         return;
     }
@@ -33,7 +35,7 @@ export function emptyDir(dir: string) {
     }
 }
 
-export function isDirEmpty(path: string) {
+export function isDirEmpty(path: string): boolean {
     if (!fs.existsSync(path)) {
         return true;
     }
