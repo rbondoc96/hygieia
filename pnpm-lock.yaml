@@ -4,6 +4,9 @@ devDependencies:
   '@types/fs-extra':
     specifier: ^11.0.1
     version: 11.0.1
+  '@types/getos':
+    specifier: ^3.0.1
+    version: 3.0.1
   '@types/minimist':
     specifier: ^1.2.2
     version: 1.2.2
@@ -55,6 +58,9 @@ devDependencies:
   fs-extra:
     specifier: ^11.1.1
     version: 11.1.1
+  getos:
+    specifier: ^3.2.1
+    version: 3.2.1
   kolorist:
     specifier: ^1.7.0
     version: 1.7.0
@@ -748,6 +754,10 @@ packages:
       '@types/node': 18.15.11
     dev: true
 
+  /@types/getos@3.0.1:
+    resolution: {integrity: sha512-igBIU7ZwzRrVGYf0nQyISMJZjuDF+5T2v8gnqXGpIbMN7j/pk6s4uSHXfolXPMUZET6aCfG9xoPDT47oM9RN6A==}
+    dev: true
+
   /@types/istanbul-lib-coverage@2.0.4:
     resolution: {integrity: sha512-z/QT1XN4K4KYuslS23k62yDIDLwLFkzxOuMplDtObz0+y7VqJCaO2o+SPwHCvLFZh7xazvvoor2tA/hPz9ee7g==}
     dev: true
@@ -1070,6 +1080,10 @@ packages:
 
   /assertion-error@1.1.0:
     resolution: {integrity: sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==}
+    dev: true
+
+  /async@3.2.4:
+    resolution: {integrity: sha512-iAB+JbDEGXhyIUavoDl9WP/Jj106Kz9DEn1DPgYw5ruDn0e3Wgi3sKFm55sASdGBNOQB8F59d9qQ7deqrHA8wQ==}
     dev: true
 
   /available-typed-arrays@1.0.5:
@@ -1961,6 +1975,12 @@ packages:
 
   /get-tsconfig@4.5.0:
     resolution: {integrity: sha512-MjhiaIWCJ1sAU4pIQ5i5OfOuHHxVo1oYeNsWTON7jxYkod8pHocXeh+SSbmu5OZZZK73B6cbJ2XADzXehLyovQ==}
+    dev: true
+
+  /getos@3.2.1:
+    resolution: {integrity: sha512-U56CfOK17OKgTVqozZjUKNdkfEv6jk5WISBJ8SHoagjE6L69zOwl3Z+O8myjY9MEW3i2HPWQBt/LTbCgcC973Q==}
+    dependencies:
+      async: 3.2.4
     dev: true
 
   /glob-parent@5.1.2:

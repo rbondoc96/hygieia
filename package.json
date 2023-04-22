@@ -4,7 +4,7 @@
     "type": "module",
     "license": "MIT",
     "author": "Rodrigo Bondoc",
-    "description": "A TypeScript project scaffolding tool CLI that streamlines initial setup with linting and code formatting on-save.",
+    "description": "A TypeScript project configuration CLI tool that streamlines initial setup with linting, code style, and type checks.",
     "bin": {
         "hygieia": "index.js"
     },
@@ -29,6 +29,7 @@
     "keywords": [],
     "devDependencies": {
         "@types/fs-extra": "^11.0.1",
+        "@types/getos": "^3.0.1",
         "@types/minimist": "^1.2.2",
         "@types/node": "^18.15.11",
         "@types/prompts": "^2.4.4",
@@ -46,6 +47,7 @@
         "eslint-plugin-simple-import-sort": "^10.0.0",
         "execa": "^7.1.1",
         "fs-extra": "^11.1.1",
+        "getos": "^3.2.1",
         "kolorist": "^1.7.0",
         "minimist": "^1.2.8",
         "os-name": "^5.1.0",

@@ -6,9 +6,11 @@ import {reset} from 'kolorist';
 import minimist from 'minimist';
 import prompts from 'prompts';
 
-import OperationCancelledError from './errors/OperationCancelledError';
-import Messages from './messages';
-import {copyFile, emptyDir, formatTargetDir, isDirEmpty, outputVersionInformation} from './utils';
+import OperationCancelledError from '@/errors/OperationCancelledError';
+import {outputHelpInformation} from '@/lib/help';
+import {outputVersionDebugInformation, outputVersionInformation} from '@/lib/version';
+import Messages from '@/messages';
+import {copyFile, emptyDir, formatTargetDir, isDirEmpty} from '@/utils';
 
 const Prompts = {
     CheckShouldOverwriteDirectory: {
@@ -39,8 +41,18 @@ export default async function main(): Promise<void> {
         string: ['_'],
     });
 
-    if (argv._[0] === 'version') {
+    if (argv.v === true || argv.version === true) {
         outputVersionInformation();
+        return;
+    }
+
+    if (argv['version-debug'] === true) {
+        await outputVersionDebugInformation();
+        return;
+    }
+
+    if (argv.help === true || argv.h === true) {
+        outputHelpInformation();
         return;
     }
 
