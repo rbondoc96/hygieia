@@ -25,6 +25,7 @@ module.exports = defineConfig({
         'indent': ['error', 4, {SwitchCase: 1}],
         'object-curly-newline': ['error', {consistent: true}],
         'object-curly-spacing': ['error', 'never'],
+        'max-len': ['error', 100],
         'no-debugger': 'error',
         'no-empty': 'warn',
         'no-process-exit': 'off',
@@ -59,7 +60,9 @@ module.exports = defineConfig({
         'import/no-duplicates': 'error',
         'import/no-nodejs-modules': [
             'error',
-            {allow: builtinModules.map(mod => `node:${mod}`)},
+            {
+                allow: builtinModules.map(mod => `node:${mod}`),
+            },
         ],
         'import/order': 'off',
         'simple-import-sort/exports': 'error',
