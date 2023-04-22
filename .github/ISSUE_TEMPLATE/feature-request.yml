@@ -1,0 +1,49 @@
+name: '\U0001F680 New Feature Request'
+description: Propose a new feature to be added to Hygieia
+labels: ['enhancement', 'feature', 'pending triage']
+
+body:
+    - type: markdown
+      attributes:
+          value: Thank you for your interest in the project and taking the time to fill out this feature report!
+
+    - type: textarea
+      id: feature-description
+      validations:
+          required: true
+      attributes:
+          label: Feature Description
+          description: 'A clear and concise description of the feature. Please make the reason and use cases as detailed as possible. If you intend to submit a PR for this issue, please note it in the description.'
+          placeholder: As a developer using Hygieia, I want [goal / wish] so that [benefit].
+
+    - type: textarea
+      id: suggested-solution
+      validations:
+          required: true
+      attributes:
+          label: Suggested Solution
+          description: A clear and concise description on how the feature could be implemented.
+          placeholder: To implement [x] feature, we could provide the following implementation...
+
+    - type: textarea
+      id: alternatives-considered
+      attributes:
+          label: Alternatives Considered
+          description: A clear and concise description of any alternative solutions or features you've considered.
+
+    - type: textarea
+      id: additional-context
+      attributes:
+          label: Additional Context
+          description: Any other context or screenshots about the feature request.
+
+    - type: checkboxes
+      id: validations
+      attributes:
+          label: Validations
+          description: 'Before submitting the issue, please make sure you do the following:'
+          options:
+              - label: Read the [Contributing Guidelines](https://github.com/pxeeio/hygieia/blob/main/CONTRIBUTING.md).
+                required: true
+              - label: Check that there isn't already an issue that requests the same feature to avoid creating a duplicate issue.
+                required: true
