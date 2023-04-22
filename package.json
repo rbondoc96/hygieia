@@ -48,6 +48,7 @@
         "fs-extra": "^11.1.1",
         "kolorist": "^1.7.0",
         "minimist": "^1.2.8",
+        "os-name": "^5.1.0",
         "prettier": "^2.8.7",
         "prompts": "^2.4.2",
         "tsx": "^3.12.6",
