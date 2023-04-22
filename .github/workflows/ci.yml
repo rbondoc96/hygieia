@@ -39,9 +39,6 @@ jobs:
             - name: Install deps
               run: pnpm install
 
-            - name: Build
-              run: pnpm build
-
             - name: Lint
               run: pnpm lint
 
@@ -51,5 +48,52 @@ jobs:
             - name: Type checks
               run: pnpm check:types
 
+    test_code:
+        runs-on: ubuntu-latest
+        name: 'Source Code Tests with Coverage, node-18, ubuntu-latest'
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v2.2.4
+              with:
+                  version: latest
+
+            - name: Set node version to 18
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+                  cache: 'pnpm'
+
+            - name: Install deps
+              run: pnpm install
+
+            - name: Test Source Code
+              run: pnpm test:coverage
+
+    test_build:
+        runs-on: ubuntu-latest
+        name: 'CLI Build Tests, node-18, ubuntu-latest'
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v2.2.4
+              with:
+                  version: latest
+
+            - name: Set node version to 18
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+                  cache: 'pnpm'
+
+            - name: Install deps
+              run: pnpm install
+
             - name: Test build
-              run: pnpm test:build --coverage
+              run: pnpm test:build
