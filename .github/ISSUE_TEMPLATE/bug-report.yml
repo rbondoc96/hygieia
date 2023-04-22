@@ -1,0 +1,69 @@
+name: '🐛 Bug Report'
+description: Report an Issue with Hygieia
+labels: ['bug', 'pending triage']
+
+body:
+    - type: markdown
+      attributes:
+          value: Thank you for taking the time to fill out this bug report!
+
+    - type: dropdown
+      id: is-regression
+      validations:
+          required: true
+      attributes:
+          label: Is this a Regression?
+          options:
+              - 'Yes'
+              - 'No'
+
+    - type: textarea
+      id: bug-description
+      validations:
+          required: true
+      attributes:
+          label: Describe the Bug
+          description: 'A detailed description of the bug. If you intend to submit a PR for this issue, please note it in the description.'
+          placeholder: I am doing ... What I expect is ... What is actually happening is ...
+
+    - type: textarea
+      id: steps-to-reproduce
+      attributes:
+          label: Steps to Reproduce
+          description: Please provide any reproduction steps that may need to be described.
+          placeholder: Provide a project name with the following name
+
+    - type: textarea
+      id: environment
+      validations:
+          required: true
+      attributes:
+          label: Environment
+          description: |
+              Please provide the environment you discovered this bug in (run `hygieia --version-debug`)
+          placeholder: |
+              Hygieia: 0.1.0
+              Node: 18.15.0
+              Architecture: arm64
+              Platform: darwin
+              OS: macOS Ventura 13.0.1
+
+    - type: textarea
+      id: logs
+      attributes:
+          label: Logs
+          description: Please include any logs relevant to the bug that could be useful in identifying the cause and fixing it.
+          placeholder: Please try not to insert an image, but copy/paste the log text.
+
+    - type: checkboxes
+      id: validations
+      attributes:
+          label: Validations
+          description: 'Before submitting the issue, please make sure you do the following:'
+          options:
+              - label: Read the [Contributing Guidelines](https://github.com/pxeeio/hygieia/blob/main/CONTRIBUTING.md).
+                required: true
+              - label: Check that there isn't already an issue that reports the same bug to avoid creating a duplicate issue.
+                required: true
+              - label: The provided reproduction is a [minimal reproducible example](https://stackoverflow.com/help/minimal-reproducible-example) of the bug.
+                required: true

@@ -68,9 +68,7 @@ describe('CLI', () => {
     test('does not prompt to clear directory if it already exists and is empty', async () => {
         createEmptyDir(TEST_PROJECT_NAME);
         const {stdout} = run([TEST_PROJECT_NAME]);
-        expect(stdout).not.toContain(
-            Messages.ShouldOverwriteDirectory(TEST_PROJECT_NAME),
-        );
+        expect(stdout).not.toContain(Messages.ShouldOverwriteDirectory(TEST_PROJECT_NAME));
     });
 
     test('creates a `tsconfig.json` file from templates/recommended', () => {

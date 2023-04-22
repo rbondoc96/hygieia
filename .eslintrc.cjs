@@ -12,7 +12,7 @@ module.exports = defineConfig({
         'plugin:regexp/recommended',
         'plugin:prettier/recommended',
     ],
-    plugins: ['@typescript-eslint', 'import', 'prettier', 'regexp', 'simple-import-sort'],
+    plugins: ['@typescript-eslint', 'import', 'regexp', 'simple-import-sort'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         sourceType: 'module',
@@ -21,10 +21,11 @@ module.exports = defineConfig({
     rules: {
         'array-bracket-spacing': ['error', 'never'],
         'comma-dangle': ['error', 'always-multiline'],
-        'eqeqeq': ['warn', 'always', {null: 'never'}],
+        'eqeqeq': ['warn', 'always'],
         'indent': ['error', 4, {SwitchCase: 1}],
         'object-curly-newline': ['error', {consistent: true}],
         'object-curly-spacing': ['error', 'never'],
+        'max-len': ['error', 100],
         'no-debugger': 'error',
         'no-empty': 'warn',
         'no-process-exit': 'off',
@@ -59,7 +60,9 @@ module.exports = defineConfig({
         'import/no-duplicates': 'error',
         'import/no-nodejs-modules': [
             'error',
-            {allow: builtinModules.map(mod => `node:${mod}`)},
+            {
+                allow: builtinModules.map(mod => `node:${mod}`),
+            },
         ],
         'import/order': 'off',
         'simple-import-sort/exports': 'error',
