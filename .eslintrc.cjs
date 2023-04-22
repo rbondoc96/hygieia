@@ -12,7 +12,7 @@ module.exports = defineConfig({
         'plugin:regexp/recommended',
         'plugin:prettier/recommended',
     ],
-    plugins: ['@typescript-eslint', 'import', 'prettier', 'regexp', 'simple-import-sort'],
+    plugins: ['@typescript-eslint', 'import', 'regexp', 'simple-import-sort'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         sourceType: 'module',
