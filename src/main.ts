@@ -8,7 +8,7 @@ import prompts from 'prompts';
 
 import OperationCancelledError from './errors/OperationCancelledError';
 import Messages from './messages';
-import {copyFile, emptyDir, formatTargetDir, isDirEmpty} from './utils';
+import {copyFile, emptyDir, formatTargetDir, isDirEmpty, outputVersionInformation} from './utils';
 
 const Prompts = {
     CheckShouldOverwriteDirectory: {
@@ -39,6 +39,11 @@ export default async function main(): Promise<void> {
         string: ['_'],
     });
 
+    if (argv._[0] === 'version') {
+        outputVersionInformation();
+        return;
+    }
+
     const cwd = process.cwd();
 
     const projectNameArg = formatTargetDir(argv._[0]);
@@ -56,8 +61,7 @@ export default async function main(): Promise<void> {
                     message: Prompts.ProjectName.message,
                     initial: defaultProjectName,
                     onState: state => {
-                        targetProjectName =
-                            formatTargetDir(state.value) ?? defaultProjectName;
+                        targetProjectName = formatTargetDir(state.value) ?? defaultProjectName;
                     },
                 },
                 {
@@ -70,10 +74,7 @@ export default async function main(): Promise<void> {
                 },
                 {
                     type: (_, previousResults) => {
-                        if (
-                            previousResults[Prompts.ShouldOverwriteDirectory.key] ===
-                            false
-                        ) {
+                        if (previousResults[Prompts.ShouldOverwriteDirectory.key] === false) {
                             throw new OperationCancelledError();
                         }
                         return null;
@@ -110,11 +111,7 @@ export default async function main(): Promise<void> {
     } = results;
 
     const projectRoot = path.join(cwd, targetProjectName);
-    const templatesRoot = path.resolve(
-        fileURLToPath(import.meta.url),
-        '../..',
-        'templates',
-    );
+    const templatesRoot = path.resolve(fileURLToPath(import.meta.url), '../..', 'templates');
     const recommendedTemplatesRoot = path.resolve(templatesRoot, 'recommended');
 
     if (shouldOverwriteDirectory) {
