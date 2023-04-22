@@ -23,7 +23,8 @@
         "test": "vitest run",
         "test:build": "pnpm build && VITE_TEST_BUILD=1 vitest run",
         "test:coverage": "vitest run --coverage",
-        "test:watch": "vitest"
+        "test:unit": "vitest run --dir __tests__/unit",
+        "test:watch": "vitest --watch"
     },
     "keywords": [],
     "devDependencies": {
