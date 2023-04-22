@@ -21,7 +21,7 @@ module.exports = defineConfig({
     rules: {
         'array-bracket-spacing': ['error', 'never'],
         'comma-dangle': ['error', 'always-multiline'],
-        'eqeqeq': ['warn', 'always', {null: 'never'}],
+        'eqeqeq': ['warn', 'always'],
         'indent': ['error', 4, {SwitchCase: 1}],
         'object-curly-newline': ['error', {consistent: true}],
         'object-curly-spacing': ['error', 'never'],

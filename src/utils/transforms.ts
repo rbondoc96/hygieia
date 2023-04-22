@@ -29,9 +29,7 @@ export function isValidNPMPackageName(name: string): boolean {
  * @param {string} userAgent The user agent string to parse.
  * @returns {UserAgent | undefined} The parsed user agent object or `undefined` if parsing fails.
  */
-export function packageFromUserAgent(
-    userAgent: string | undefined,
-): UserAgent | undefined {
+export function packageFromUserAgent(userAgent: string | undefined): UserAgent | undefined {
     if (userAgent === undefined) {
         return undefined;
     }
