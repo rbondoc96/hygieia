@@ -4,6 +4,9 @@
         "module": "ES2020",
         "outDir": "dist",
         "moduleResolution": "bundler",
+        "paths": {
+            "@/*": ["./src/*"]
+        },
         "alwaysStrict": true,
         "strict": true,
         "allowJs": false,
