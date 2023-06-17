@@ -1,18 +1,18 @@
 import path from 'node:path';
-
 import fs from 'fs-extra';
 import {afterEach, beforeEach, describe, expect, test} from 'vitest';
 
-import NoSuchFileOrDirectoryError from '../../../src/errors/NoSuchFileOrDirectoryError';
-import PathIsNotADirectoryError from '../../../src/errors/PathIsNotADirectoryError';
-import * as dir from '../../../src/utils/dir';
 import {
     createEmptyDir,
     createEmptyNestedDirs,
     createFile,
     createNonEmptyDir,
     createNonEmptyNestedDirs,
-} from '../../helpers';
+} from '!/helpers';
+
+import NoSuchFileOrDirectoryError from '@/errors/NoSuchFileOrDirectoryError';
+import PathIsNotADirectoryError from '@/errors/PathIsNotADirectoryError';
+import * as dir from '@/utils/dir';
 
 const TEST_DEST_DIR_PATH = path.join(__dirname, 'test-dest-dir');
 const TEST_DIR_PATH = path.join(__dirname, 'test-dir');
