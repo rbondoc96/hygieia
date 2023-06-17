@@ -46,7 +46,7 @@ module.exports = defineConfig({
         'n/no-extraneous-import': [
             'error',
             {
-                allowModules: ['unbuild'],
+                allowModules: ['unbuild', 'vitest'],
             },
         ],
         'n/no-extraneous-require': 'error',
@@ -66,7 +66,50 @@ module.exports = defineConfig({
         ],
         'import/order': 'off',
         'simple-import-sort/exports': 'error',
-        'simple-import-sort/imports': 'error',
+        'simple-import-sort/imports': [
+            'error',
+            {
+                /**
+                 * Regex Reference:
+                 *  - '.': Any character except newline.
+                 *  - '*': Zero or more of the preceding item.
+                 *  - '|': Boolean OR. Matches the expression before or after the `|`.
+                 *  - '^': Start of the string.
+                 *  - '$': End of the string.
+                 *
+                 * Groups Reference
+                 *  - Groups are defined in separate lists.
+                 *  - Groups are separated by a newline character in the source code.
+                 *
+                 * - '^\\u0000': Side effect imports.
+                 *  For example: import './polyfills'
+                 *
+                 * - '^node:': Node.js builtins prefixed with `node:`.
+                 *  For example: `import fs from 'node:fs';`
+                 *
+                 * - '^@?\\w': 3rd party packages.
+                 *  Starts with a letter/digit/underscore, or `@` followed by a letter.
+                 *  For example: `import {useState} from 'react';`
+                 *
+                 * - '^!(/.*|$)': Imports that start with `!/`
+                 *  For example: `import {myHelper} from '!/helpers/my-helper';`
+                 *
+                 * - '^@(/.*|$)': Imports that start with `@/`
+                 *  For example: `import {mySource} from '@/sources/my-source';`
+                 *
+                 * - '^': Absolute imports and other imports not matched in another group.
+                 *
+                 * - '^\\.': Relative imports. Anything that starts with a dot.
+                 */
+                groups: [
+                    ['^\\u0000'],
+                    ['^node:', '^@?\\w'],
+                    ['^!(/.*|$)'],
+                    ['^@(/.*|$)'],
+                    ['^', '^\\.'],
+                ],
+            },
+        ],
 
         'regexp/strict': 'off',
         'regexp/no-contradiction-with-assertion': 'error',
