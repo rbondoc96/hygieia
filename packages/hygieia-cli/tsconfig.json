@@ -29,5 +29,5 @@
         "sourceMap": false,
         "useUnknownInCatchVariables": true
     },
-    "include": ["build.config.ts", "src", "__tests__"]
+    "include": ["packages/hygieia-cli/build.config.ts", "src", "__tests__"]
 }

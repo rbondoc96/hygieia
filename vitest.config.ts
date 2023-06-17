@@ -8,8 +8,6 @@ export default defineConfig({
         },
         exclude: ['**/node_modules/**', '**/dist/**', '**/coverage/**', '**/helpers/**'],
         testTimeout: 10000,
-        // node14 often fails with a Segmentation Fault
-        threads: !process.versions.node.startsWith('14'),
     },
     esbuild: {
         target: 'node14',
