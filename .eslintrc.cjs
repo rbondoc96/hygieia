@@ -91,6 +91,9 @@ module.exports = defineConfig({
                  *  Starts with a letter/digit/underscore, or `@` followed by a letter.
                  *  For example: `import {useState} from 'react';`
                  *
+                 * - '^~(/.*|$)': Imports that start with `~/`
+                 *  For example: `import packageJson from '~/package.json';`
+                 *
                  * - '^!(/.*|$)': Imports that start with `!/`
                  *  For example: `import {myHelper} from '!/helpers/my-helper';`
                  *
@@ -104,6 +107,7 @@ module.exports = defineConfig({
                 groups: [
                     ['^\\u0000'],
                     ['^node:', '^@?\\w'],
+                    ['^~(/.*|$)'],
                     ['^!(/.*|$)'],
                     ['^@(/.*|$)'],
                     ['^', '^\\.'],
