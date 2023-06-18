@@ -19,13 +19,13 @@
     ],
     "scripts": {
         "build": "pnpm -r --filter='./packages/*' run build",
+        "check:types": "turbo check:types",
         "lint": "eslint . --cache --ext .ts",
         "lint:fix": "eslint --fix",
         "lint:fix-dry": "eslint --fix-dry-run",
-        "test:build": "pnpm build && VITE_TEST_BUILD=1 vitest run",
-        "test:coverage": "vitest run --coverage",
-        "test:unit": "vitest run",
-        "test:watch": "vitest --watch"
+        "test": "turbo test",
+        "test:build": "turbo test:build",
+        "test:coverage": "turbo test:coverage"
     },
     "devDependencies": {
         "@types/fs-extra": "^11.0.1",
@@ -45,6 +45,7 @@
         "fs-extra": "^11.1.1",
         "prettier": "^2.8.7",
         "tsx": "^3.12.6",
+        "turbo": "^1.10.3",
         "typescript": "^5.0.4",
         "unbuild": "^1.2.1",
         "vite": "^4.2.2",
