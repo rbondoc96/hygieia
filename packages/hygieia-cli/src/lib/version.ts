@@ -1,5 +1,4 @@
 import os from 'node:os';
-
 import {execaCommand} from 'execa';
 import getLinuxOS from 'getos';
 import osName from 'os-name';

@@ -1,5 +1,4 @@
 import path from 'node:path';
-
 import {defineBuildConfig} from 'unbuild';
 
 export default defineBuildConfig({

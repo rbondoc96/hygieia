@@ -1,5 +1,4 @@
 import path from 'node:path';
-
 import fs from 'fs-extra';
 
 import NoSuchFileOrDirectoryError from '../errors/NoSuchFileOrDirectoryError';

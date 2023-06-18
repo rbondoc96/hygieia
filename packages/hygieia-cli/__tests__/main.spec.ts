@@ -1,5 +1,4 @@
 import path from 'node:path';
-
 import type {ExecaSyncReturnValue, SyncOptions} from 'execa';
 import {execaCommandSync} from 'execa';
 import fs from 'fs-extra';
