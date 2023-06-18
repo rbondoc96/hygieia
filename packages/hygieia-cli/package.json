@@ -1,5 +1,5 @@
 {
-    "name": "hygieia",
+    "name": "@pxeeio/hygieia",
     "version": "0.1.0",
     "type": "module",
     "license": "MIT",
@@ -31,7 +31,9 @@
         "lint": "eslint . --cache --ext .ts",
         "lint:fix": "eslint --fix",
         "lint:fix-dry": "eslint --fix-dry-run",
-        "test:unit": "vitest run --dir __tests__/unit"
+        "test": "vitest run",
+        "test:build": "pnpm build && VITE_TEST_BUILD=1 vitest run",
+        "test:coverage": "vitest run --coverage"
     },
     "devDependencies": {
         "@types/getos": "^3.0.1",
