@@ -1,5 +1,4 @@
 import path from 'node:path';
-
 import fs from 'fs-extra';
 
 export function createEmptyDir(dir: string): void {

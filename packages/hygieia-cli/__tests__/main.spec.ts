@@ -1,11 +1,10 @@
 import path from 'node:path';
-
 import type {ExecaSyncReturnValue, SyncOptions} from 'execa';
 import {execaCommandSync} from 'execa';
 import fs from 'fs-extra';
 import {afterEach, beforeEach, describe, expect, test} from 'vitest';
 
-import Messages from '../src/messages';
+import Messages from '@/messages';
 
 const CLI_RUNNER = import.meta.env.VITE_TEST_BUILD === '1' ? 'node' : 'tsx';
 

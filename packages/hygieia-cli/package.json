@@ -1,0 +1,49 @@
+{
+    "name": "@pxeeio/hygieia",
+    "version": "0.1.0",
+    "type": "module",
+    "license": "MIT",
+    "author": "Rodrigo Bondoc",
+    "description": "A TypeScript project configuration CLI tool that streamlines initial setup with linting, code style, and type checks.",
+    "engines": {
+        "node": ">=16.0.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:pxeeio/hygieia.git",
+        "directory": "packages/hygieia-cli"
+    },
+    "bugs": {
+        "url": "https://github.com/pxeeio/hygieia/issues"
+    },
+    "bin": {
+        "hygieia": "index.js"
+    },
+    "files": [
+        "index.js",
+        "dist"
+    ],
+    "scripts": {
+        "build": "unbuild",
+        "check:code": "pnpm check:types && pnpm lint",
+        "check:types": "tsc --noEmit",
+        "dev": "tsx src/index.ts",
+        "lint": "eslint . --cache --ext .ts",
+        "lint:fix": "eslint --fix",
+        "lint:fix-dry": "eslint --fix-dry-run",
+        "test": "vitest run",
+        "test:build": "pnpm build && VITE_TEST_BUILD=1 vitest run",
+        "test:coverage": "vitest run --coverage"
+    },
+    "devDependencies": {
+        "@types/getos": "^3.0.1",
+        "@types/minimist": "^1.2.2",
+        "@types/prompts": "^2.4.4",
+        "cross-spawn": "^7.0.3",
+        "getos": "^3.2.1",
+        "kolorist": "^1.7.0",
+        "minimist": "^1.2.8",
+        "os-name": "^5.1.0",
+        "prompts": "^2.4.2"
+    }
+}
