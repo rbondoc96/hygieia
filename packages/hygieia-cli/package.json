@@ -25,12 +25,8 @@
     ],
     "scripts": {
         "build": "unbuild",
-        "check:code": "pnpm check:types && pnpm lint",
         "check:types": "tsc --noEmit",
         "dev": "tsx src/index.ts",
-        "lint": "eslint . --cache --ext .ts",
-        "lint:fix": "eslint --fix",
-        "lint:fix-dry": "eslint --fix-dry-run",
         "test": "vitest run",
         "test:build": "pnpm build && VITE_TEST_BUILD=1 vitest run",
         "test:coverage": "vitest run --coverage"

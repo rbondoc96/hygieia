@@ -1,6 +1,5 @@
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
-
 import fs from 'fs-extra';
 
 const PROJECT_ROOT = path.resolve(fileURLToPath(import.meta.url), '..', '..');

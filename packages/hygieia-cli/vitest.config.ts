@@ -7,6 +7,7 @@ export default mergeConfig(
     defineConfig({
         test: {
             alias: {
+                '~/': new URL('./', import.meta.url).pathname,
                 '@/': new URL('./src/', import.meta.url).pathname,
                 '!/': new URL('./__tests__/', import.meta.url).pathname,
             },

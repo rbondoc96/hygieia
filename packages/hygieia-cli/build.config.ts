@@ -3,6 +3,7 @@ import {defineBuildConfig} from 'unbuild';
 
 export default defineBuildConfig({
     alias: {
+        '~': path.resolve(__dirname),
         '@': path.resolve(__dirname, 'src'),
     },
     clean: true,

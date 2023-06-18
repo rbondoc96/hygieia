@@ -43,12 +43,7 @@ module.exports = defineConfig({
         'n/no-process-exit': 'off',
         'n/no-missing-import': 'off',
         'n/no-missing-require': 'error',
-        'n/no-extraneous-import': [
-            'error',
-            {
-                allowModules: ['unbuild', 'vitest'],
-            },
-        ],
+        'n/no-extraneous-import': 'warn',
         'n/no-extraneous-require': 'error',
         'n/no-deprecated-api': 'error',
         'n/no-unpublished-import': 'error',
@@ -65,7 +60,7 @@ module.exports = defineConfig({
             },
         ],
         'import/order': 'off',
-        'simple-import-sort/exports': 'error',
+        'simple-import-sort/exports': 'warn',
         'simple-import-sort/imports': [
             'error',
             {
@@ -132,9 +127,15 @@ module.exports = defineConfig({
     overrides: [
         {
             files: ['packages/**'],
-            excludedFiles: '**/__tests__/**',
+            excludedFiles: ['**/__tests__/**'],
             rules: {
                 'no-restricted-globals': ['error', 'require', '__dirname', '__filename'],
+            },
+        },
+        {
+            files: ['**/scripts/**'],
+            rules: {
+                'n/no-extraneous-import': 'off',
             },
         },
         {
@@ -144,9 +145,17 @@ module.exports = defineConfig({
             },
         },
         {
+            files: ['**/vitest.config.ts'],
+            rules: {
+                'n/no-extraneous-import': 'off',
+            },
+        },
+        {
             files: ['**/build.config.ts'],
             rules: {
+                'no-restricted-globals': 'off',
                 'no-undef': 'off',
+                'n/no-extraneous-import': 'off',
                 'n/no-missing-import': 'off',
                 '@typescript-eslint/explicit-module-boundary-types': 'off',
             },
