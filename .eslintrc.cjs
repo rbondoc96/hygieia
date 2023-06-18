@@ -18,7 +18,6 @@ module.exports = defineConfig({
         sourceType: 'module',
         ecmaVersion: 2021,
     },
-    ignorePatterns: ['dist/'],
     rules: {
         'array-bracket-spacing': ['error', 'never'],
         'comma-dangle': ['error', 'always-multiline'],
